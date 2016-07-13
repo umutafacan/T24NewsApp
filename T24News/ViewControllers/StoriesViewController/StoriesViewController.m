@@ -7,10 +7,13 @@
 //
 
 #import "StoriesViewController.h"
-
+#import <SVPullToRefresh/SVPullToRefresh.h>
 
 @interface StoriesViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic,strong) NSMutableArray *arrayStories;
+
+@property (nonatomic) int pageNumber;
 
 @end
 
@@ -20,6 +23,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _pageNumber = 1;
+    [self retrieveStoriesAt:_pageNumber];
+    
+    [self.collectionView addInfiniteScrollingWithActionHandler:^{
+        _pageNumber++;
+        [self retrieveStoriesAt:_pageNumber];
+        
+    }];
+    
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -41,7 +56,7 @@
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     
-    return 5;
+    return self.arrayStories.count;
     
 }
 
@@ -53,6 +68,23 @@
     
 }
 
+
+-(void)retrieveStoriesAt:(int)page
+{
+    [[ServiceManager sharedManager]fetchStoriesAtPage:page WithCompletion:^(T24StoriesResponse *response) {
+       
+        if (page == 1) {
+            [self.delegate sendLoadingFinished];
+        }
+        
+    } failure:^(NSError *error) {
+        if (page == 1) {
+            [self.delegate sendLoadingFinished];
+        }
+        
+    }];
+
+}
 
 /*
 #pragma mark - Navigation
