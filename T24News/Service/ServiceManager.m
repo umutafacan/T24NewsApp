@@ -20,8 +20,6 @@
 
 }
 
-
-
 #pragma mark - AFManager Settings
 + (AFSecurityPolicy *)securityPolicy {
     
@@ -165,6 +163,88 @@
              
          }];
 }
+
+#pragma mark - Categories
+
++(NSString *)urlCategoryStoriesAt:(int)categoryID
+{
+    
+    return [NSString stringWithFormat:@"%@%@%d",[self baseServiceURL],@"stories.json?category=",categoryID];
+    
+}
+
++(void)fetchCategoryStoriesAt:(int)categoryID WithCompletion:(completionCategoryStories)completion failure:(failure)failure
+{
+    AFHTTPRequestOperationManager *manager = [self generateManager];
+    
+    [manager GET:[self urlCategories] parameters:nil
+         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+             
+             T24CategoryStoriesResponse *result = [[T24CategoryStoriesResponse alloc]initWithDictionary:(NSDictionary *)responseObject];
+             
+             if (result) {
+                 
+                 if (completion) {
+                     completion(result);
+                 }
+             }else
+             {
+                 if (failure) {
+                     failure(operation.error);
+                 }
+                 
+             }
+             
+         } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+             if (failure) {
+                 failure(error);
+             }
+             
+             
+         }];
+}
+
+
+#pragma mark - Categories
+
++(NSString *)urlStorysWith:(int)storyID
+{
+    
+    return [NSString stringWithFormat:@"%@%@%d",[self baseServiceURL],@"stories.json?story=",storyID];
+    
+}
+
++(void)fetchStoryWith:(int)storyID WithCompletion:(completionStory)completion failure:(failure)failure
+{
+    AFHTTPRequestOperationManager *manager = [self generateManager];
+    
+    [manager GET:[self urlStorysWith:storyID] parameters:nil
+         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+             
+             T24StoryResponse *result = [[T24StoryResponse alloc]initWithDictionary:(NSDictionary *)responseObject];
+             
+             if (result) {
+                 
+                 if (completion) {
+                     completion(result);
+                 }
+             }else
+             {
+                 if (failure) {
+                     failure(operation.error);
+                 }
+                 
+             }
+             
+         } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+             if (failure) {
+                 failure(error);
+             }
+             
+             
+         }];
+}
+
 
 
 

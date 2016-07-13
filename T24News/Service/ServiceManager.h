@@ -16,10 +16,11 @@ typedef void (^failure)(NSError *error);
 
 typedef void (^completionStories) (T24StoriesResponse* response);
 typedef void (^completionCategories) (T24CategoriesResponse* response);
-
-
+typedef void (^completionCategoryStories) (T24CategoryStoriesResponse* response);
+typedef void (^completionStory) (T24StoryResponse* response);
 
 @interface ServiceManager : NSObject
+
 
 
 
