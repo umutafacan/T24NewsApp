@@ -10,10 +10,26 @@
 #import <AFNetworking/AFNetworking.h>
 
 @implementation ServiceManager
++(ServiceManager *)sharedManager
+{
+    static ServiceManager *_sharedManager = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate,^{ _sharedManager = [[ServiceManager alloc]init];});
+    
+    return  _sharedManager;
+}
 
+
+-(id)init
+{
+    if (self) {
+        
+    }
+    return self;
+}
 
 #pragma mark - Base URL
-+(NSString *)baseServiceURL
+-(NSString *)baseServiceURL
 {
     
     return @"http://t24.com.tr/api/v3/";
@@ -21,13 +37,13 @@
 }
 
 #pragma mark - AFManager Settings
-+ (AFSecurityPolicy *)securityPolicy {
+- (AFSecurityPolicy *)securityPolicy {
     
     return [AFSecurityPolicy defaultPolicy];
     
 }
 
-+ (AFHTTPRequestOperationManager *)generateManager {
+- (AFHTTPRequestOperationManager *)generateManager {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -44,14 +60,14 @@
 
 #pragma mark - HotNews
 
-+(NSString *)urlHotNews
+-(NSString *)urlHotNews
 {
     
     return [NSString stringWithFormat:@"%@%@",[self baseServiceURL],@"stories.json?paging=1"];
     
 }
 
-+(void)fetchHotNewsWithCompletion:(completionStories)completion failure:(failure)failure
+-(void)fetchHotNewsWithCompletion:(completionStories)completion failure:(failure)failure
 {
     AFHTTPRequestOperationManager *manager = [self generateManager];
     
@@ -85,14 +101,14 @@
 
 #pragma mark - Stories
 
-+(NSString *)urlStoriesForPage:(int)page
+-(NSString *)urlStoriesForPage:(int)page
 {
     
     return [NSString stringWithFormat:@"%@%@%d",[self baseServiceURL],@"stories.json?paging=",page];
     
 }
 
-+(void)fetchStoriesAtPage:(int)page WithCompletion:(completionStories)completion failure:(failure)failure
+-(void)fetchStoriesAtPage:(int)page WithCompletion:(completionStories)completion failure:(failure)failure
 {
     AFHTTPRequestOperationManager *manager = [self generateManager];
     
@@ -126,14 +142,14 @@
 
 #pragma mark - Categories
 
-+(NSString *)urlCategories
+-(NSString *)urlCategories
 {
     
     return [NSString stringWithFormat:@"%@%@",[self baseServiceURL],@"categories.json?type=story"];
     
 }
 
-+(void)fetchCategoriesWithCompletion:(completionCategories)completion failure:(failure)failure
+-(void)fetchCategoriesWithCompletion:(completionCategories)completion failure:(failure)failure
 {
     AFHTTPRequestOperationManager *manager = [self generateManager];
     
@@ -173,7 +189,7 @@
     
 }
 
-+(void)fetchCategoryStoriesAt:(int)categoryID WithCompletion:(completionCategoryStories)completion failure:(failure)failure
+-(void)fetchCategoryStoriesAt:(int)categoryID WithCompletion:(completionCategoryStories)completion failure:(failure)failure
 {
     AFHTTPRequestOperationManager *manager = [self generateManager];
     
@@ -207,14 +223,14 @@
 
 #pragma mark - Categories
 
-+(NSString *)urlStorysWith:(int)storyID
+-(NSString *)urlStorysWith:(int)storyID
 {
     
     return [NSString stringWithFormat:@"%@%@%d",[self baseServiceURL],@"stories.json?story=",storyID];
     
 }
 
-+(void)fetchStoryWith:(int)storyID WithCompletion:(completionStory)completion failure:(failure)failure
+-(void)fetchStoryWith:(int)storyID WithCompletion:(completionStory)completion failure:(failure)failure
 {
     AFHTTPRequestOperationManager *manager = [self generateManager];
     

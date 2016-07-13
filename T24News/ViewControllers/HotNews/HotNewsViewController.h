@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "HotNewsCollectionViewCell.h"
+@class HotNewsViewController;
+
+@protocol HotNewsViewControllerDelegate <NSObject>
+-(void)sendLoadingComplete;
+
+
+@end
+
 
 @interface HotNewsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property (nonatomic,retain) id<HotNewsViewControllerDelegate> delegate;
 
 @end

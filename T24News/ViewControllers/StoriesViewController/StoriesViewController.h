@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "StoriesCollectionViewCell.h"
 
+@protocol StoriesViewControllerDelegate <NSObject>
+
+-(void)sendLoadingFinished;
+
+@end
+
 @interface StoriesViewController : UIViewController
+
+@property (nonatomic,weak) id<StoriesViewControllerDelegate> delegate;
 
 @end

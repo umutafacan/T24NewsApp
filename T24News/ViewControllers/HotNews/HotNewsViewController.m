@@ -10,6 +10,8 @@
 
 @interface HotNewsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
+@property (nonatomic,strong) NSMutableArray *arrayNews;
+
 @end
 
 @implementation HotNewsViewController
@@ -51,6 +53,23 @@
 }
 
 
+
+#pragma mark - Service 
+
+-(void)retrieveNews
+{
+    [[ServiceManager sharedManager]fetchHotNewsWithCompletion:^(T24StoriesResponse *response) {
+        
+        self.arrayNews =(NSMutableArray*)response.data;
+        
+        [self.collectionView reloadData];
+        [self.delegate sendLoadingComplete];
+        
+    } failure:^(NSError *error) {
+        
+    }];
+
+}
 
 /*
 #pragma mark - Navigation

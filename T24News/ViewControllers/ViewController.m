@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()<UIScrollViewDelegate>
+@interface ViewController ()<UIScrollViewDelegate,HotNewsViewControllerDelegate,StoriesViewControllerDelegate>
 
 #pragma mark - IBOutlets
 @property (weak, nonatomic) IBOutlet UIView *viewNavigationBar;
@@ -20,6 +20,7 @@
 @property (nonatomic,strong) StoriesViewController *storiesVC;
 @property (nonatomic,strong) HotNewsViewController *hotNewsVC;
 
+@property (nonatomic) int loadingCounter;
 
 @end
 
@@ -28,9 +29,17 @@
 #pragma mark - LIFE
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self getChieldViewControllers];
     
     [self configureDelegates];
     [self configureScrollView];
+    [[PopupManager sharedManager]showLoading:self completion:^{
+        
+    }];
+    
+    
+    _loadingCounter = 0;
+    
     
 }
 
@@ -40,6 +49,20 @@
 
 #pragma mark - Configurators
 
+-(void)getChieldViewControllers
+{
+    for (UIViewController *vc in self.navigationController.viewControllers ) {
+        if ([vc isKindOfClass:[HotNewsViewController class]]) {
+            self.hotNewsVC = vc;
+        }
+        if ([vc isKindOfClass:[StoriesViewController class]]) {
+            self.storiesVC = vc;
+            
+        }
+    }
+    
+
+}
 -(void)configureScrollView
 {
     [self.scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, (self.view.bounds.size.height-40) )];
@@ -49,6 +72,8 @@
 -(void)configureDelegates
 {
     self.scrollView.delegate = self;
+    self.hotNewsVC.delegate =self;
+    self.storiesVC.delegate=self;
     
 
 }
@@ -67,5 +92,26 @@
 
 
 }
+
+#pragma mark - Chield Delegates
+
+-(void)sendLoadingComplete
+{
+    _loadingCounter++;
+    if (_loadingCounter == 2) {
+        [[PopupManager sharedManager]removeAllPopups];
+    }
+}
+
+-(void)sendLoadingFinished
+{
+    
+    _loadingCounter++;
+    if (_loadingCounter == 2) {
+        [[PopupManager sharedManager]removeAllPopups];
+    }
+
+}
+
 
 @end

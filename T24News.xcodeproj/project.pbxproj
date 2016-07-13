@@ -45,6 +45,7 @@
 		4CD8FED21D35BD3100BE19FD /* T24StoryResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD8FEC91D35BD3100BE19FD /* T24StoryResponse.m */; };
 		4CD8FED31D35BD3100BE19FD /* T24StoryStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD8FECB1D35BD3100BE19FD /* T24StoryStats.m */; };
 		4CD8FED41D35BD3100BE19FD /* T24StoryUrls.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD8FECD1D35BD3100BE19FD /* T24StoryUrls.m */; };
+		4CD8FED81D36778B00BE19FD /* PopupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD8FED71D36778B00BE19FD /* PopupManager.m */; };
 		60FC381726582D6C8CF53322 /* libPods-T24News.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE4047DDF3FE2AA1D4106C4D /* libPods-T24News.a */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +142,8 @@
 		4CD8FECB1D35BD3100BE19FD /* T24StoryStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = T24StoryStats.m; sourceTree = "<group>"; };
 		4CD8FECC1D35BD3100BE19FD /* T24StoryUrls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T24StoryUrls.h; sourceTree = "<group>"; };
 		4CD8FECD1D35BD3100BE19FD /* T24StoryUrls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = T24StoryUrls.m; sourceTree = "<group>"; };
+		4CD8FED61D36778B00BE19FD /* PopupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupManager.h; sourceTree = "<group>"; };
+		4CD8FED71D36778B00BE19FD /* PopupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupManager.m; sourceTree = "<group>"; };
 		DE4047DDF3FE2AA1D4106C4D /* libPods-T24News.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-T24News.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACF02FA8A0BACCE757841E4 /* Pods-T24News.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T24News.release.xcconfig"; path = "Pods/Target Support Files/Pods-T24News/Pods-T24News.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +199,7 @@
 		4CD8FE301D3402E400BE19FD /* T24News */ = {
 			isa = PBXGroup;
 			children = (
+				4CD8FED91D36785200BE19FD /* Utilities */,
 				4CD8FE641D3414B100BE19FD /* Service */,
 				4CD8FE341D3402E400BE19FD /* AppDelegate.h */,
 				4CD8FE351D3402E400BE19FD /* AppDelegate.m */,
@@ -396,6 +400,24 @@
 				4CD8FECD1D35BD3100BE19FD /* T24StoryUrls.m */,
 			);
 			path = Story;
+			sourceTree = "<group>";
+		};
+		4CD8FED51D36778100BE19FD /* PopupManager */ = {
+			isa = PBXGroup;
+			children = (
+				4CD8FED61D36778B00BE19FD /* PopupManager.h */,
+				4CD8FED71D36778B00BE19FD /* PopupManager.m */,
+			);
+			name = PopupManager;
+			path = Utilities/PopupManager;
+			sourceTree = "<group>";
+		};
+		4CD8FED91D36785200BE19FD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4CD8FED51D36778100BE19FD /* PopupManager */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		971918449E207935025B97CA /* Frameworks */ = {
@@ -620,6 +642,7 @@
 				4CD8FED31D35BD3100BE19FD /* T24StoryStats.m in Sources */,
 				4CD8FEBB1D35BA3500BE19FD /* T24CategoryStoriesPaging.m in Sources */,
 				4CD8FEA01D35B62400BE19FD /* T24CategoriesResponse.m in Sources */,
+				4CD8FED81D36778B00BE19FD /* PopupManager.m in Sources */,
 				4CD8FE841D35B3C100BE19FD /* StoriesCollectionViewCell.m in Sources */,
 				4CD8FE801D35AF7C00BE19FD /* HotNewsCollectionViewCell.m in Sources */,
 				4CD8FE751D35AF0E00BE19FD /* HotNewsViewController.m in Sources */,

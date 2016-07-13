@@ -109,6 +109,10 @@
         <scene sceneID="8Tj-JX-eP6">
             <objects>
                 <viewController id="cKr-sp-dLX" customClass="StoriesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eVj-1X-2sT"/>
+                        <viewControllerLayoutGuide type="bottom" id="XS7-F7-zJn"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XpT-cj-MaQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,6 +179,10 @@
         <scene sceneID="69k-nj-zad">
             <objects>
                 <viewController id="s2l-CS-dUE" customClass="HotNewsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C9b-yL-f2d"/>
+                        <viewControllerLayoutGuide type="bottom" id="wTw-hx-M2c"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kb3-qR-qR8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

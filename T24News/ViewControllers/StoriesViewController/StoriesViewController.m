@@ -9,10 +9,12 @@
 #import "StoriesViewController.h"
 
 
-@interface StoriesViewController ()
+@interface StoriesViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
+
+#pragma mark - Life
 
 @implementation StoriesViewController
 
@@ -25,6 +27,32 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - CollectionView DataSources
+
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    return [UICollectionViewCell new];
+    
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    
+    return 5;
+    
+}
+
+#pragma mark - CollectionView Delegates
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+}
+
 
 /*
 #pragma mark - Navigation
