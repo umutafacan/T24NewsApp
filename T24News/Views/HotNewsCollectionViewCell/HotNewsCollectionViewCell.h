@@ -13,6 +13,8 @@
 #pragma mark - Properties
 @property (weak, nonatomic) IBOutlet DFImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *label;
+@property (nonatomic) NSInteger indexRow;
+
 #pragma mark - Functions
 -(void)configureCell:(T24StoriesData *)data;
 

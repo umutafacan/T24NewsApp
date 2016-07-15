@@ -20,7 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.collectionView.delegate =self;
+    self.collectionView.dataSource  = self;
     [self retrieveNews];
+    [self scheduleNewRetrieval];
     
     
     
@@ -39,7 +42,8 @@
 {
     HotNewsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HotNewsCollectionViewCell" forIndexPath:indexPath];
     if (cell) {
-        [cell configureCell:[self.arrayNews objectAtIndex:indexPath]];
+        [cell configureCell:[self.arrayNews objectAtIndex:indexPath.row]];
+        cell.indexRow = indexPath.row;
     }
     
     return cell;
@@ -82,7 +86,7 @@
 
 -(void)scheduleNewRetrieval
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         [self retrieveNews];
         [self scheduleNewRetrieval];

@@ -67,6 +67,7 @@
 {
     [self.scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, (self.view.bounds.size.height-40) )];
 
+
 }
 
 -(void)configureDelegates

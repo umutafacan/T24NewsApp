@@ -119,6 +119,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tGW-Ca-JRM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
+                                <color key="backgroundColor" red="0.69803921570000005" green="0.87450980389999999" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="M7P-HY-R9L">
                                     <size key="itemSize" width="350" height="80"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -126,7 +127,7 @@
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="s8v-JK-8ek" customClass="StoriesCollectionViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="StoriesCollectionViewCell" reuseIdentifier="StoriesCollectionViewCell" id="s8v-JK-8ek" customClass="StoriesCollectionViewCell">
                                         <rect key="frame" x="12.5" y="10" width="350" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -135,6 +136,7 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s3Q-cL-Ja7" customClass="DFImageView">
                                                     <rect key="frame" x="5" y="5" width="70" height="70"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="s3Q-cL-Ja7" secondAttribute="height" multiplier="1:1" id="iAK-v7-Imd"/>
                                                     </constraints>
@@ -148,6 +150,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="WQR-pR-tbQ" firstAttribute="top" secondItem="s8v-JK-8ek" secondAttribute="topMargin" id="CFM-c9-6YO"/>
                                             <constraint firstItem="WQR-pR-tbQ" firstAttribute="leading" secondItem="s3Q-cL-Ja7" secondAttribute="trailing" constant="8" id="MFe-bw-DhO"/>
@@ -160,6 +163,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="s3Q-cL-Ja7" id="ouo-Pg-AEk"/>
                                             <outlet property="label" destination="WQR-pR-tbQ" id="AHO-J5-a0U"/>
+                                            <segue destination="EMx-Uo-pvg" kind="show" identifier="detail" id="Keh-wh-ye8"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -175,7 +179,6 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="tGW-Ca-JRM" id="WTG-D6-o9C"/>
-                        <segue destination="EMx-Uo-pvg" kind="show" identifier="detail" id="w2a-lB-Cp1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RAb-HL-PqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,6 +244,7 @@
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3aw-Qw-V5p" customClass="DFImageView">
                                                 <rect key="frame" x="8" y="14" width="304" height="165"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="3aw-Qw-V5p" secondAttribute="height" multiplier="304:165" id="yWA-io-Tsh"/>
                                                 </constraints>
@@ -281,9 +285,15 @@
                             <constraint firstItem="Rpv-9P-mSW" firstAttribute="top" secondItem="lyL-fL-5wr" secondAttribute="bottom" id="D8Q-VX-k8T"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8F7-Ez-HbP" secondAttribute="trailing" constant="-20" id="E5O-pT-3Wv"/>
                             <constraint firstItem="Rpv-9P-mSW" firstAttribute="leading" secondItem="so2-6d-JoG" secondAttribute="leadingMargin" constant="-20" id="NtO-iQ-ZDG"/>
+                            <constraint firstItem="DJn-jM-zAJ" firstAttribute="top" secondItem="Rpv-9P-mSW" secondAttribute="top" id="Wlo-Ym-9UY"/>
                             <constraint firstItem="8F7-Ez-HbP" firstAttribute="leading" secondItem="so2-6d-JoG" secondAttribute="leadingMargin" constant="-20" id="vfa-An-ywZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rpv-9P-mSW" secondAttribute="trailing" constant="-20" id="wdA-ga-vQ2"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="D0Z-mW-czB"/>
+                            </mask>
+                        </variation>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
@@ -310,7 +320,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pcn-Xg-F6M">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pcn-Xg-F6M">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NEN-3o-JDo">
                                     <size key="itemSize" width="375" height="240"/>
@@ -319,7 +329,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5gK-sZ-gXT" customClass="HotNewsCollectionViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="HotNewsCollectionViewCell" reuseIdentifier="HotNewsCollectionViewCell" id="5gK-sZ-gXT" customClass="HotNewsCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -342,6 +352,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="8kQ-kQ-BkY" firstAttribute="leading" secondItem="5gK-sZ-gXT" secondAttribute="leadingMargin" constant="19" id="7Ly-xK-SO6"/>
                                             <constraint firstItem="pkF-76-2gn" firstAttribute="top" secondItem="5gK-sZ-gXT" secondAttribute="topMargin" constant="-8" id="BJp-WV-wDZ"/>
@@ -354,16 +365,22 @@
                                         <connections>
                                             <outlet property="imageView" destination="pkF-76-2gn" id="DTu-5i-Mh8"/>
                                             <outlet property="label" destination="8kQ-kQ-BkY" id="N1r-gS-nLJ"/>
+                                            <segue destination="EMx-Uo-pvg" kind="show" identifier="detail" id="Z5h-Hc-S2s"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pcn-Xg-F6M" firstAttribute="top" secondItem="C9b-yL-f2d" secondAttribute="bottom" id="F8t-V2-cfT"/>
+                            <constraint firstItem="wTw-hx-M2c" firstAttribute="top" secondItem="pcn-Xg-F6M" secondAttribute="bottom" id="PxR-4i-bYR"/>
+                            <constraint firstItem="pcn-Xg-F6M" firstAttribute="leading" secondItem="kb3-qR-qR8" secondAttribute="leadingMargin" constant="-20" id="gLG-SF-alr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pcn-Xg-F6M" secondAttribute="trailing" constant="-20" id="jLd-vI-aEF"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="pcn-Xg-F6M" id="7vo-Kn-KJA"/>
-                        <segue destination="EMx-Uo-pvg" kind="show" identifier="detail" id="A2H-wf-x7Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SaV-cw-ZLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -372,6 +389,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="w2a-lB-Cp1"/>
+        <segue reference="Z5h-Hc-S2s"/>
     </inferredMetricsTieBreakers>
 </document>

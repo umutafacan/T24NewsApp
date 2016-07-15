@@ -13,7 +13,9 @@
 @interface StoriesCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet DFImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *label;
+@property (nonatomic) NSInteger indexRow;
 
 -(void)configureStoryCell:(T24StoriesData *)data;
+
 
 @end

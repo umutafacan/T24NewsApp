@@ -8,6 +8,7 @@
 
 #import "StoriesViewController.h"
 #import <SVPullToRefresh/SVPullToRefresh.h>
+#import "DetailViewController.h"
 
 @interface StoriesViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -26,6 +27,9 @@
     
     _pageNumber = 1;
     [self retrieveStoriesAt:_pageNumber];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    
     
     [self.collectionView addInfiniteScrollingWithActionHandler:^{
         _pageNumber++;
@@ -48,9 +52,10 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    StoriesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"StoriesColelctionViewCell" forIndexPath:indexPath];
+    StoriesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"StoriesCollectionViewCell" forIndexPath:indexPath];
     if (cell) {
         [cell configureStoryCell:[self.arrayStories objectAtIndex:indexPath.row]];
+        cell.indexRow = indexPath.row;
     }
     
     return cell;
@@ -97,14 +102,22 @@
 
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"detail"]) {
+        DetailViewController *destVC =  segue.destinationViewController;
+        StoriesCollectionViewCell *cell = sender;
+        destVC.data = [self.arrayStories objectAtIndex:cell.indexRow];
+        
+    }
+    
+
 }
-*/
+
 
 @end

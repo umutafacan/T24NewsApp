@@ -19,7 +19,7 @@
     _imageView.allowsAnimations=YES;
     _imageView.managesRequestPriorities=YES;
     [_imageView prepareForReuse];
-    [_imageView setImageWithResource:[NSURL URLWithString:data.images.list] targetSize:_imageView.frame.size contentMode:DFImageContentModeAspectFill options:nil];
+    [_imageView setImageWithResource:[NSURL URLWithString:[data.images.list substringFromIndex:2]] targetSize:_imageView.frame.size contentMode:DFImageContentModeAspectFill options:nil];
     
     
 
