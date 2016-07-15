@@ -49,6 +49,7 @@
     _imageView.allowsAnimations=YES;
     _imageView.managesRequestPriorities=YES;
     [_imageView prepareForReuse];
+    //image url's are broken somehow it needs to refinish more
     [_imageView setImageWithResource:[NSURL URLWithString:_data.images.page] targetSize:_imageView.frame.size contentMode:DFImageContentModeAspectFill options:nil];
     
 
