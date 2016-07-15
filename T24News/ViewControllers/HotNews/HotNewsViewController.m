@@ -37,15 +37,19 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    return [UICollectionViewCell new];
+    HotNewsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HotNewsCollectionViewCell" forIndexPath:indexPath];
+    if (cell) {
+        [cell configureCell:[self.arrayNews objectAtIndex:indexPath]];
+    }
+    
+    return cell;
 
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     
-    return 5;
+    return self.arrayNews.count;
 
 }
 

@@ -6,10 +6,14 @@
 //  Copyright © 2016 Umut Afacan. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
+#import "DFImageView.h"
 
 @interface StoriesCollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet DFImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *label;
+
+-(void)configureStoryCell:(T24StoriesData *)data;
 
 @end

@@ -12,6 +12,18 @@
 
 
 
+-(void)configureCell:(T24StoriesData *)data
+{
+    _label.text = data.title;
+    
+    _imageView.allowsAnimations=YES;
+    _imageView.managesRequestPriorities=YES;
+    [_imageView prepareForReuse];
+    [_imageView setImageWithResource:[NSURL URLWithString:data.images.list] targetSize:_imageView.frame.size contentMode:DFImageContentModeAspectFill options:nil];
+    
+    
 
+
+}
 
 @end

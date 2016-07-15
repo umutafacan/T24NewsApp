@@ -48,8 +48,12 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    StoriesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"StoriesColelctionViewCell" forIndexPath:indexPath];
+    if (cell) {
+        [cell configureStoryCell:[self.arrayStories objectAtIndex:indexPath.row]];
+    }
     
-    return [UICollectionViewCell new];
+    return cell;
     
 }
 
@@ -73,6 +77,13 @@
 {
     [[ServiceManager sharedManager]fetchStoriesAtPage:page WithCompletion:^(T24StoriesResponse *response) {
        
+        
+        self.arrayStories = (NSMutableArray *)response.data;
+        
+        self.pageNumber =(int)response.paging.current;
+        
+        [self.collectionView reloadData];
+        
         if (page == 1) {
             [self.delegate sendLoadingFinished];
         }

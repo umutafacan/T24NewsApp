@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DFImageView.h"
 
 @interface HotNewsCollectionViewCell : UICollectionViewCell
 #pragma mark - Properties
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet DFImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *label;
 #pragma mark - Functions
-
+-(void)configureCell:(T24StoriesData *)data;
 
 
 @end

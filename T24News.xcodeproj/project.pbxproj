@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C161A421D38B70800C0F787 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C161A411D38B70800C0F787 /* DetailViewController.m */; };
+		4C161A461D38BB8000C0F787 /* LoadingPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C161A441D38BB8000C0F787 /* LoadingPopupViewController.m */; };
+		4C161A471D38BB8000C0F787 /* LoadingPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C161A451D38BB8000C0F787 /* LoadingPopupViewController.xib */; };
 		4CD8FE331D3402E400BE19FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD8FE321D3402E400BE19FD /* main.m */; };
 		4CD8FE361D3402E400BE19FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD8FE351D3402E400BE19FD /* AppDelegate.m */; };
 		4CD8FE3C1D3402E400BE19FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD8FE3A1D3402E400BE19FD /* Main.storyboard */; };
@@ -68,6 +71,11 @@
 
 /* Begin PBXFileReference section */
 		41FA5E5F6C300DB8ADFD218F /* Pods-T24News.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T24News.debug.xcconfig"; path = "Pods/Target Support Files/Pods-T24News/Pods-T24News.debug.xcconfig"; sourceTree = "<group>"; };
+		4C161A401D38B70800C0F787 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		4C161A411D38B70800C0F787 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		4C161A431D38BB8000C0F787 /* LoadingPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingPopupViewController.h; sourceTree = "<group>"; };
+		4C161A441D38BB8000C0F787 /* LoadingPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingPopupViewController.m; sourceTree = "<group>"; };
+		4C161A451D38BB8000C0F787 /* LoadingPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingPopupViewController.xib; sourceTree = "<group>"; };
 		4CD8FE2E1D3402E400BE19FD /* T24News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T24News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CD8FE321D3402E400BE19FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CD8FE341D3402E400BE19FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -174,6 +182,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C161A3F1D38B6F600C0F787 /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4C161A401D38B70800C0F787 /* DetailViewController.h */,
+				4C161A411D38B70800C0F787 /* DetailViewController.m */,
+			);
+			name = DetailViewController;
+			path = ViewControllers/DetailViewController;
+			sourceTree = "<group>";
+		};
+		4C161A481D38BB8500C0F787 /* PopupVC */ = {
+			isa = PBXGroup;
+			children = (
+				4C161A431D38BB8000C0F787 /* LoadingPopupViewController.h */,
+				4C161A441D38BB8000C0F787 /* LoadingPopupViewController.m */,
+				4C161A451D38BB8000C0F787 /* LoadingPopupViewController.xib */,
+			);
+			name = PopupVC;
+			sourceTree = "<group>";
+		};
 		4CD8FE251D3402E400BE19FD = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +300,7 @@
 		4CD8FE6F1D35AEDA00BE19FD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4C161A3F1D38B6F600C0F787 /* DetailViewController */,
 				4CD8FE851D35B3FF00BE19FD /* StoriesViewController */,
 				4CD8FE6E1D35A1F100BE19FD /* HotNews */,
 				4CD8FE6A1D35A1B200BE19FD /* MainViewContorller */,
@@ -407,6 +436,7 @@
 			children = (
 				4CD8FED61D36778B00BE19FD /* PopupManager.h */,
 				4CD8FED71D36778B00BE19FD /* PopupManager.m */,
+				4C161A481D38BB8500C0F787 /* PopupVC */,
 			);
 			name = PopupManager;
 			path = Utilities/PopupManager;
@@ -543,6 +573,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C161A471D38BB8000C0F787 /* LoadingPopupViewController.xib in Resources */,
 				4CD8FE411D3402E400BE19FD /* LaunchScreen.storyboard in Resources */,
 				4CD8FE3E1D3402E400BE19FD /* Assets.xcassets in Resources */,
 				4CD8FE3C1D3402E400BE19FD /* Main.storyboard in Resources */,
@@ -628,6 +659,7 @@
 				4CD8FE881D35B40F00BE19FD /* StoriesViewController.m in Sources */,
 				4CD8FED41D35BD3100BE19FD /* T24StoryUrls.m in Sources */,
 				4CD8FEA21D35B62400BE19FD /* T24StoriesData.m in Sources */,
+				4C161A461D38BB8000C0F787 /* LoadingPopupViewController.m in Sources */,
 				4CD8FED21D35BD3100BE19FD /* T24StoryResponse.m in Sources */,
 				4CD8FECF1D35BD3100BE19FD /* T24StoryCategory.m in Sources */,
 				4CD8FEA71D35B62400BE19FD /* T24StoriesUrls.m in Sources */,
@@ -647,6 +679,7 @@
 				4CD8FE801D35AF7C00BE19FD /* HotNewsCollectionViewCell.m in Sources */,
 				4CD8FE751D35AF0E00BE19FD /* HotNewsViewController.m in Sources */,
 				4CD8FEA61D35B62400BE19FD /* T24StoriesStats.m in Sources */,
+				4C161A421D38B70800C0F787 /* DetailViewController.m in Sources */,
 				4CD8FE671D3414D500BE19FD /* ServiceManager.m in Sources */,
 				4CD8FEBD1D35BA3500BE19FD /* T24CategoryStoriesStats.m in Sources */,
 				4CD8FEBC1D35BA3500BE19FD /* T24CategoryStoriesResponse.m in Sources */,
