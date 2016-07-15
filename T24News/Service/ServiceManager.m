@@ -182,7 +182,7 @@
 
 #pragma mark - Categories
 
-+(NSString *)urlCategoryStoriesAt:(int)categoryID
+-(NSString *)urlCategoryStoriesAt:(int)categoryID
 {
     
     return [NSString stringWithFormat:@"%@%@%d",[self baseServiceURL],@"stories.json?category=",categoryID];
